@@ -36,3 +36,6 @@
 
 ```ansible all -m uri -a "url=https://google.com return_content=yes" -b```  - проверка подсоединения к сайту, посмотреть контент с сайта
 
+```ansible all -m yum -a "name=httpd state=latest" -b```
+
+```ansible all -m service -a "name=httpd state=started enabled-yes" -b```
