@@ -1,14 +1,14 @@
-**Запуск ```ansible``` всех хостов**
+**Запуск ```ansible``` всех хостов:**
 
 ```ansible -i hosts_inventory.txt all -m ping```
 
-**Запуск ```ansible``` всех хостов Windows серверов**
+**Запуск ```ansible``` всех хостов Windows серверов:**
 
 ```ansible -i hosts_inventory.txt windows_servers -m win_ping```
 
 ```ansible -i hosts_inventory.txt windows_servers -m win_ping --ask-pass```
 
-**Какие группы и сервера прописаны**
+**Какие группы и сервера прописаны:**
 
 ```ansible-inventory --list```
 
@@ -21,6 +21,7 @@
 
 ```ansible all -m command -a "ls /var"```  - такой как shell, но не через shell :)
 
+**Команды ```ansible```:**
 
 ```ansible all -m copy -a "src=file.txt dest=/home mode=777" -b```  - копирование файла с sudo (-b)
 
@@ -41,6 +42,6 @@
 ```ansible all -m service -a "name=httpd state=started enabled-yes" -b```
 
 
-**Запуск ```asible playbook```**
+**Запуск ```asible playbook```:**
 
 ```ansible-playbook playbook1.yml```
