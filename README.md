@@ -39,3 +39,8 @@
 ```ansible all -m yum -a "name=httpd state=latest" -b```
 
 ```ansible all -m service -a "name=httpd state=started enabled-yes" -b```
+
+
+**Запуск ```asible playbook```**
+
+```ansible-playbook playbook1.yml```
