@@ -1,49 +1,56 @@
-**Команды для звпуска ```ansible```**
+**Команды для звпуска ``ansible``**
 
-*Запуск ```ansible``` всех хостов:*
+*Запуск ``ansible`` всех хостов:*
 
-```ansible -i hosts_inventory.txt all -m ping```
+``ansible -i hosts_inventory.txt all -m ping``
 
-*Запуск ```ansible``` всех хостов Windows серверов:*
+*Запуск ``ansible`` всех хостов Windows серверов:*
 
-```ansible -i hosts_inventory.txt windows_servers -m win_ping```
+``ansible -i hosts_inventory.txt windows_servers -m win_ping``
 
-```ansible -i hosts_inventory.txt windows_servers -m win_ping --ask-pass```
+``ansible -i hosts_inventory.txt windows_servers -m win_ping --ask-pass``
 
 *Какие группы и сервера прописаны:*
 
-```ansible-inventory --list```
+``ansible-inventory --list``
 
-```ansible-inventory --graph```
-
-
-```ansible all -m setup```  - информация по серверам
-
-```ansible all -m shell -a "uptime"```  - запуск команд на серверах
-
-```ansible all -m command -a "ls /var"```  - такой как shell, но не через shell :)
-
-*Команды ```ansible```:*
-
-```ansible all -m copy -a "src=file.txt dest=/home mode=777" -b```  - копирование файла с sudo (-b)
-
-```ansible all -m file -a "path=/home/file.txt state=absent" -b```  - удаление файла с sudo (-b)
-
-```ansible all -m get_url -a "url=https://<url link> dest=/home" -b```  - скачивание с интернета с sudo (-b)
-
-```ansible all -m yum -a "name=nano state=latest(or installed)" -b```  - установка прорамм с sudo (-b)
-
-```ansible all -m yum -a "name=nano state=removed" -b```  - удаление прорамм с sudo (-b)
-
-```ansible all -m uri -a "url=https://google.com" -b```  - проверка подсоединения к сайту
-
-```ansible all -m uri -a "url=https://google.com return_content=yes" -b```  - проверка подсоединения к сайту, посмотреть контент с сайта
-
-```ansible all -m yum -a "name=httpd state=latest" -b```
-
-```ansible all -m service -a "name=httpd state=started enabled-yes" -b```
+``ansible-inventory --graph``
 
 
-*Запуск ```asible playbook```:*
+``ansible all -m setup``  - информация по серверам
 
-```ansible-playbook playbook1.yml```
+``ansible all -m shell -a "uptime"``  - запуск команд на серверах
+
+``ansible all -m command -a "ls /var"``  - такой как shell, но не через shell :)
+
+---
+
+*Команды ``ansible``:*
+
+``ansible all -m copy -a "src=file.txt dest=/home mode=777" -b``  - копирование файла с sudo (-b)
+
+``ansible all -m file -a "path=/home/file.txt state=absent" -b``  - удаление файла с sudo (-b)
+
+``ansible all -m get_url -a "url=https://<url link> dest=/home" -b``  - скачивание с интернета с sudo (-b)
+
+``ansible all -m yum -a "name=nano state=latest(or installed)" -b``  - установка прорамм с sudo (-b)
+
+``ansible all -m yum -a "name=nano state=removed" -b``  - удаление прорамм с sudo (-b)
+
+``ansible all -m uri -a "url=https://google.com" -b``  - проверка подсоединения к сайту
+
+``ansible all -m uri -a "url=https://google.com return_content=yes" -b``  - проверка подсоединения к сайту, посмотреть контент с сайта
+
+``ansible all -m yum -a "name=httpd state=latest" -b``
+
+``ansible all -m service -a "name=httpd state=started enabled-yes" -b``
+
+---
+
+*Запуск ``asible playbook``:*
+``ansible-playbook playbook1.yml``
+
+---
+
+**Playbook для запуска Циклы – Loop **
+``playbookloop.yml`` - file
