@@ -1,0 +1,33 @@
+---
+- name: Loops Playbook
+  hosts: Linux3
+  become: yes
+
+  tasks:
+  - name: Say Hello to ALL
+    debug: msg="Hello {{ item }}"
+    loop: 
+        - "Vasia"
+        - "Petia"
+        - "Koliya"   
+
+
+- name: Loop Until example
+  shell: echo -n A >> mayfile.txt && cat mayfile.txt
+  register: output
+  delay: 2
+  retries: 10
+  until: output.stdout.find("AAAA") == false
+
+
+- name: Print Final Output
+  debug:
+    var: output.stdout
+
+- name: Install many packaged
+  yum: name={{ item }}
+  with_item:
+     - python
+     - nano
+     - thee
+     
